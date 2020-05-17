@@ -1,0 +1,36 @@
+menu "Example Configuration"
+
+    choice EXAMPLE_WPS_TYPE
+        prompt "WPS mode"
+        default EXAMPLE_WPS_TYPE_PBC
+        help
+            WPS type for the esp32 to use.
+
+        config EXAMPLE_WPS_TYPE_PBC
+            bool "PBC"
+        config EXAMPLE_WPS_TYPE_PIN
+            bool "PIN"
+        config EXAMPLE_WPS_TYPE_DISABLE
+            bool "disable"
+    endchoice
+
+    config ESP_WIFI_SSID
+        string "WiFi SSID"
+        default "myssid"
+        help
+            SSID (network name) for the example to connect to.
+
+    config ESP_WIFI_PASSWORD
+        string "WiFi Password"
+        default "mypassword"
+        help
+            WiFi password (WPA or WPA2) for the example to use.
+
+    config ESP_MAXIMUM_RETRY
+        int "Maximum retry"
+        default 5
+        help
+            Set the Maximum retry to avoid station reconnecting to the AP unlimited when the AP is really inexistent.
+
+
+endmenu
